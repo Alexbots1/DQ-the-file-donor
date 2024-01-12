@@ -1206,6 +1206,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     
     elif query.data == "help":
+        if query.from_user.mention != ADMINS:
+            return
         buttons = [[
             InlineKeyboardButton('FIʟᴛᴇʀs', callback_data='filters'),
             InlineKeyboardButton('Fɪʟᴇ Sᴛᴏʀᴇ', callback_data='store_file')
