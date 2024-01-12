@@ -1206,7 +1206,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     
     elif query.data == "help":
-        if query.from_user.mention != ADMINS:
+        if query.from_user.id != ADMINS:
+            await query.answer("Admins Only", show_alert=True)
             return
         buttons = [[
             InlineKeyboardButton('FIʟᴛᴇʀs', callback_data='filters'),
